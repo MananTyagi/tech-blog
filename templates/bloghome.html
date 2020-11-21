@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block homeactive %} active {% endblock homeactive %} {% block body %}
+<div class="container">
+    <h3 class="text-dark text-center"> Welcome to amazing blogs</h3>
+    {% for blog in blogs %}
+    <div class="media my-6">
+        <div class="media-body">
+            <h4 class="mt-1">
+                <a href="/blogpost/{{blog.slug}}" class="text-dark">{{blog.title}}</a>
+            </h4>
+            {{blog.content|slice:300}}....
+        </div>
+        <a href="/blogpost/{{blog.slug}}" class="text-dark">
+            <button class="btn btn-outline-primary">
+                Read
+                more.....
+            </button>
+        </a>
+    </div>
+    <br> {% endfor %}
+    <div class=" py-4">
+        {% if prev %}
+        <button class="btn btn-success float-left  btn-sm">
+            <a class="text-light" href="/blog?page={{prev}}">&laquo; Previous</a>
+        </button> {% else%}
+        <button class="btn btn-success float-left btn-sm">
+            <a class="text-light" href="#">&laquo; Previous</a>
+            {% endif %}
+            {% if nxt %}
+            <button class="btn btn-success float-right btn-sm">
+                <a class="text-light" href="/blog?page={{nxt}}">&laquo; Next</a>
+                 {% else %}
+                <button class="btn btn-success float-right btn-sm">
+                    <a class="text-light" href="#">&laquo; Next</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endblock body %}
