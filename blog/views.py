@@ -1,4 +1,4 @@
-from django.shortcuts import render , HttpResponse
+from django.shortcuts import render
 from blog.models import Blog, Contact
 import math
 # Create your views here.
